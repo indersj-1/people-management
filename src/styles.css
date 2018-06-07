@@ -5,6 +5,12 @@
   display: inline-block;
 }
 
+.help-block {
+  color: red;
+  background: #f1d4d4;
+  line-height: 27px;
+}
+
 /*:root {
     --input-padding-x: .75rem;
     --input-padding-y: .75rem;

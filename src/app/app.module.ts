@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { routing }        from './app.routing';
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { HomeComponent } from './home/index';
 import { HeaderComponent } from './layout/index';
 import { LoaderComponent } from './layout/loader/loader.component';
 import { JobsComponent } from './jobs/index';
+import { AuthenticationService, UserService } from './services/index';
+import { AuthGuard } from './guard/index';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,10 @@ import { JobsComponent } from './jobs/index';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    routing
+    routing,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthenticationService,AuthGuard,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
